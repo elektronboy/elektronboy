@@ -1,0 +1,128 @@
+	<!doctype html>
+	<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>YesME Bilişim Hizmetleri</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="expires" content="-1" />
+		<script src="js/vendor/modernizr.js"></script>
+		<link rel="stylesheet" href="css/foundation.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+
+	<body>
+		$(if chap-id)
+		<form name="sendin" action="$(link-login-only)" method="post">
+			<input type="hidden" name="username" />
+			<input type="hidden" name="password" />
+			<input type="hidden" name="dst" value="http://google.com.tr"/>
+			<input type="hidden" name="popup" value="true" />
+		</form>
+		
+		<script type="text/javascript" src="/md5.js"></script>
+		<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+		<script type="text/javascript">
+		<!--
+		function doLogin() {
+			document.sendin.username.value = document.login.username.value;
+			document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+			document.sendin.submit();
+			return false;
+		}
+		//-->
+		</script>
+		$(endif)		
+		<script type="text/javascript">
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+	$(function() {	
+		var user = getUrlVars()["user"];		
+   var password = getUrlVars()["password"];
+   if(user && password){
+    document.login.password.value=password;
+	 document.login.username.value=user;
+	 doLogin();
+	}
+
+});
+	</script>
+
+		<div class="row">
+			<img alt="" src="img/companyLogo.jpg" class="companyLogo">
+		</div>
+
+		<div class="row">
+		<div class="small-11 large-4 small-centered  columns no-padding">			
+		</div>
+	</div>
+		
+		<div class="row">
+			<div class="small-11 large-4 small-centered columns box">
+				<span class="title">OTURUM AÇIN</span>
+				<form name="login" action="$(link-login-only)" method="post"
+				$(if chap-id) onSubmit="return doLogin()" $(endif)>
+				<input type="hidden" name="dst" value="http://google.com.tr"/>
+				<input type="hidden" name="popup" value="true" />
+				<div class="row">
+					<div class="large-11 small-11 small-centered columns">
+						<input type="text" name="username" class="user"  value="$(username)" placeholder="TC Kimlik Numaranız" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-11 small-11 small-centered columns">
+						<input type="password" name="password" class="pass" placeholder="Şifreniz" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-11 small-11 small-centered columns">
+						<input name="Submit" value="GİRİŞ YAP" type="submit"  class="button buttonYellow radius loginBt"/>
+
+						<hr>						
+					</div>
+				</div>
+			</form>
+			<div class="row">
+					<div class="large-11 small-11 small-centered columns">
+						<a href="http://10.26.200.2/kayit.aspx"  class="button buttonKayit radius loginBt"/>Kullanıcı Adı ve Şifre için TIKLAYIN</a>
+
+						<hr>						
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-11 large-4 small-centered  columns no-padding">
+			<a href="en.html" class="button buttonBlue radius">[ ENGLISH ]</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-11 large-4 small-centered  columns  no-padding">
+			$(if error)
+			<div data-alert class="alert-box warning radius">
+				$(error)
+				<a href="#" class="close">&times;</a>
+			</div>
+			$(endif)
+		</div>
+	</div>
+	<div class="row copy">
+		<div class="small-11 large-7 small-centered  columns">
+			<p>İnternet erişimleriniz <b>5651</b> sayılı kanun gereğince kayıt altına alınmaktadır. Bu ağı kullanan herkes <a href="kullanici_sozlesmesi.html">kullanıcı sözleşmesini</a> okumuş ve kabul etmiş sayılır. <a style="text-decoration:none;" </a></p>
+		</div>
+	</div>
+
+
+</body>
+</html>
